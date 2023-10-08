@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    overflow: hidden;
+}
+
+.content{
+    font-size: 10px;
+    position: relative;
+    width: 640px;
+    height: 640px;
+}
+
+.sun{
+    position: absolute;
+    top: 240px;
+    left: 240px;
+    width: 160px;
+    height: 160px;
+    background: #ffcc00;
+    border-radius: 50%;
+    box-shadow: 0 0 48px #ffcc00,
+    0 0 20px #fff;
+}
+
+.earth,
+.moon{
+    position: absolute;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+    border-width: 0.5px 0.5px 0 0;
+    border-radius: 50%;
+}
+
+.earth{
+    top: 80px;
+    left: 80px;
+    width: 500px;
+    height: 500px;
+    animation: orbit 35s linear infinite;
+}
+
+.moon{
+    top:0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    animation: orbit 5s linear infinite;
+}
+
+.earth::before,
+.moon::before{
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+
+.earth::before{
+    top: 55px;
+    right: 42.8px;
+    width: 55px;
+    height: 55px;
+    background: url('earth.png');
+    background-size: cover;
+    box-shadow: inset 0 0 5px 0 rgb(9,52,243),
+    inset 2px 0 5px 2px #fff,
+    2px 0 5px 2px #fff;
+}
+
+.moon::before{
+    top: 0.8px;
+    right: 6.2px;
+    width: 35px;
+    height: 35px;
+    background: url('moon.png');
+    background-size: cover;
+    box-shadow: inset 1px 0 8px 1px #fff,
+    0 0 5px 1px #fff;
+}
+
+@keyframes orbit{
+    100%{
+        transform: rotate(360deg);
+    }
+}
